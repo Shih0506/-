@@ -105,6 +105,7 @@ CREATE TABLE sick_basic (
     <td>就診時段</td>
   </tr>
 </table>
+
 ```SQL
 CREATE TABLE sick_register (
   register_number VARCHAR(20) NOT NULL,AUTO_INCREMENT,
