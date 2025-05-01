@@ -30,4 +30,13 @@
     <td></td>
     <td>病患生日</td>
   </tr>
+  <tr>
+    <td>sick_blood</td>
+    <td>CHAR(2)</td>
+    <td></td>
+    <td>病患血型</td>
+  </tr>
 </table>
+
+
+
