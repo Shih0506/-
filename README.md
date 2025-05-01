@@ -43,10 +43,10 @@
     <td>病患姓名</td>
   </tr>
   <tr>
-    <td>sick_nama</td>
-    <td>VARCHAR(50)</td>
+    <td>sick_gender</td>
+    <td>CHAR(1)</td>
     <td></td>
-    <td>病患性別</td>
+    <td>病患性別(男M女F)</td>
   </tr>
   
 </table>
@@ -57,7 +57,7 @@ CREATE TABLE sick_basic (
   sick_birth DATE,
   sick_blood CHAR(2) CHECK (sick_blood IN ('A', 'B', 'AB', 'O')),
   sick_name VARCHAR(50),
-  
+  sick_gender CHAR(1)
 );
 ```
 
