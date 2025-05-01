@@ -33,13 +33,13 @@
   <tr>
     <td>sick_blood</td>
     <td>CHAR(2)</td>
-    <td></td>
+    <td>CHECK('A', 'B', 'AB', 'O')</td>
     <td>病患血型(A,B,O,AB)</td>
   </tr>
   <tr>
     <td>sick_nama</td>
     <td>VARCHAR(50)</td>
-    <td></td>
+    <td>NOT NULL</td>
     <td>病患姓名</td>
   </tr>
   <tr>
@@ -48,7 +48,6 @@
     <td></td>
     <td>病患性別(男M女F)</td>
   </tr>
-  
 </table>
 
 ```SQL
@@ -56,9 +55,64 @@ CREATE TABLE sick_basic (
   sick_id CHAR(10) PRIMARY KEY,
   sick_birth DATE,
   sick_blood CHAR(2) CHECK (sick_blood IN ('A', 'B', 'AB', 'O')),
-  sick_name VARCHAR(50),
+  sick_name VARCHAR(50) NOT NULL,
   sick_gender CHAR(1)
 );
 ```
 
+**sick_register掛號資料表**
+<table>
+  <tr>
+    <td>欄位名稱</td>
+    <td>資料型別</td>
+    <td>限制條件</td>
+    <td>說明</td>
+  </tr>
+  <tr>
+    <td>register_number</td>
+    <td>VARCHAR(20)</td>
+    <td>NOT NULL,AUTO_INCREMENT</td>
+    <td>掛號編號</td>
+  </tr>
+  <tr>
+    <td>sick_nama</td>
+    <td>VARCHAR(50)</td>
+    <td></td>
+    <td>病患姓名</td>
+  </tr>
+  <tr>
+    <td>sick_id</td>
+    <td>CHAR(10)</td>
+    <td> FOREIGN KEY -> sick_register(sick_id)</td>
+    <td>病患身分證字號</td>
+  </tr>
+  <tr>
+    <td>doctor_nama</td>
+    <td>VARCHAR(50)</td>
+    <td></td>
+    <td>醫生姓名</td>
+  </tr>
+  <tr>
+    <td>register_data</td>
+    <td>DATA</td>
+    <td></td>
+    <td>就診日期</td>
+  </tr>
+  <tr>
+    <td>register_time</td>
+    <td>ENUM('早', '中', '晚')</td>
+    <td></td>
+    <td>就診時段</td>
+  </tr>
+</table>
+```SQL
+CREATE TABLE sick_register (
+  register_number VARCHAR(20) NOT NULL,AUTO_INCREMENT,
+  sick_name VARCHAR(50),
+  sick_id CHAR(10) PRIMARY KEY,
+  doctor_name VARCHAR(50),
+  register_data DATE,
+  register_time ENUM('早', '中', '晚')
+);
+```
 
