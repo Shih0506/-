@@ -24,4 +24,10 @@
     <td>PRIMARY KEY</td>
     <td>病患身分證字號</td>
   </tr>
+  <tr>
+    <td>sick_birth</td>
+    <td>DATA</td>
+    <td></td>
+    <td>病患生日</td>
+  </tr>
 </table>
