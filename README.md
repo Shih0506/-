@@ -34,16 +34,30 @@
     <td>sick_blood</td>
     <td>CHAR(2)</td>
     <td></td>
-    <td>病患血型</td>
+    <td>病患血型(A,B,O,AB)</td>
   </tr>
+  <tr>
+    <td>sick_nama</td>
+    <td>VARCHAR(50)</td>
+    <td></td>
+    <td>病患姓名</td>
+  </tr>
+  <tr>
+    <td>sick_nama</td>
+    <td>VARCHAR(50)</td>
+    <td></td>
+    <td>病患性別</td>
+  </tr>
+  
 </table>
 
 ```SQL
 CREATE TABLE sick_basic (
   sick_id CHAR(10) PRIMARY KEY,
   sick_birth DATE,
-  sick_blood CHAR(2)
-  name VARCHAR(50),
+  sick_blood CHAR(2) CHECK (sick_blood IN ('A', 'B', 'AB', 'O')),
+  sick_name VARCHAR(50),
+  
 );
 ```
 
