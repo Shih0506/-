@@ -19,8 +19,9 @@
     <td>說明</td>
   </tr>
   <tr>
-    <td>1</td>
-    <td>iPhone 5</td>
-    <td></td>
+    <td>sick_id</td>
+    <td>CHAR(10)</td>
+    <td>PRIMARY KEY</td>
+    <td>病患身分證字號</td>
   </tr>
 </table>
