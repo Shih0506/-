@@ -37,6 +37,12 @@
     <td>病患血型</td>
   </tr>
 </table>
+```sql
+-- 這是 SQL 程式碼
+SELECT *
+FROM users
+WHERE age > 18;
+```
 
 
 
