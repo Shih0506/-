@@ -38,7 +38,7 @@
   </tr>
 </table>
 
-```
+```SQL
 CREATE TABLE sick_basic (
   sick_id CHAR(10) PRIMARY KEY,
   name VARCHAR(50),
