@@ -38,7 +38,13 @@
   </tr>
 </table>
 
-```blood_type CHAR(2) CHECK (blood_type IN ('A', 'B', 'AB', 'O'))
-blood_type CHAR(2) CHECK (blood_type IN ('A', 'B', 'AB', 'O'))```
+```
+CREATE TABLE sick_basic (
+  sick_id CHAR(10) PRIMARY KEY,
+  name VARCHAR(50),
+  birthday DATE,
+  blood_type CHAR(2)
+);
+```
 
 
