@@ -77,7 +77,7 @@ CREATE TABLE sick_basic (
   <tr>
     <td>sick_nama</td>
     <td>VARCHAR(50)</td>
-    <td></td>
+    <td>NOT NULL</td>
     <td>病患姓名</td>
   </tr>
   <tr>
@@ -89,7 +89,7 @@ CREATE TABLE sick_basic (
   <tr>
     <td>doctor_nama</td>
     <td>VARCHAR(50)</td>
-    <td></td>
+    <td>NOT NULL</td>
     <td>醫生姓名</td>
   </tr>
   <tr>
@@ -109,9 +109,9 @@ CREATE TABLE sick_basic (
 ```SQL
 CREATE TABLE sick_register (
   register_number VARCHAR(20) NOT NULL,AUTO_INCREMENT,
-  sick_name VARCHAR(50),
+  sick_name VARCHAR(50) NOT NULL,
   sick_id CHAR(10) PRIMARY KEY,
-  doctor_name VARCHAR(50),
+  doctor_name VARCHAR(50) NOT NULL,
   register_data DATE,
   register_time ENUM('早', '中', '晚')
 );
