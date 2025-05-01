@@ -41,9 +41,9 @@
 ```SQL
 CREATE TABLE sick_basic (
   sick_id CHAR(10) PRIMARY KEY,
+  sick_birth DATE,
+  sick_blood CHAR(2)
   name VARCHAR(50),
-  birthday DATE,
-  blood_type CHAR(2)
 );
 ```
 
