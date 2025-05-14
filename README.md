@@ -88,7 +88,7 @@ CREATE TABLE sick_basic (
     <td>病患身分證字號</td>
   </tr>
   <tr>
-    <td>doctor_nama</td>
+    <td>doctor_name</td>
     <td>VARCHAR(50)</td>
     <td>NOT NULL</td>
     <td>醫生姓名</td>
@@ -139,7 +139,7 @@ CREATE TABLE sick_register (
     <td>醫生id</td>
   </tr>
   <tr>
-    <td>doctor_nama</td>
+    <td>doctor_name</td>
     <td>VARCHAR(50)</td>
     <td>NOT NULL</td>
     <td>醫生姓名</td>
