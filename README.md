@@ -27,7 +27,7 @@
   </tr>
   <tr>
     <td>sick_birth</td>
-    <td>DATA</td>
+    <td>DATE</td>
     <td></td>
     <td>病患生日</td>
   </tr>
@@ -95,7 +95,7 @@ CREATE TABLE sick_basic (
   </tr>
   <tr>
     <td>register_data</td>
-    <td>DATA</td>
+    <td>DATE</td>
     <td></td>
     <td>就診日期</td>
   </tr>
