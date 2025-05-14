@@ -51,6 +51,28 @@
   </tr>
 </table>
 
+```SQL
+CREATE TABLE sick_basic (
+  sick_id CHAR(10) PRIMARY KEY,
+  sick_birth DATE,
+  sick_blood CHAR(2) CHECK (sick_blood IN ('A', 'B', 'AB', 'O')),
+  sick_name VARCHAR(50) NOT NULL,
+  sick_gender CHAR(1)
+);
+```
+```SQL
+CREATE TABLE sick_register (
+  register_number INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  sick_name VARCHAR(50) NOT NULL,
+  sick_id CHAR(10) ,
+  doctor_name VARCHAR(50) NOT NULL,
+  register_data DATE,
+  register_time ENUM('早', '中', '晚')
+);
+```
+
+
+
 ```
 +------------+------------+------------+-----------+-------------+
 | sick_id    | sick_birth | sick_blood | sick_name| sick_gender |
