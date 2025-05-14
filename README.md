@@ -186,7 +186,7 @@ CREATE TABLE sick_register (
   <tr>
     <td>clinic_room</td>
     <td>ENUM('101', '102', '103')</td>
-    <td>NOT NULL , 只能填寫'101', '102', '103'</td>
+    <td>NOT NULL , 只能填寫'101', '102', '103', FOREIGN KEY -> clinicroom_basic(clinic_room) , 若診間設備為'N'則不可填寫</td>
     <td>診間編號</td>
   </tr>
 </table>
@@ -216,5 +216,43 @@ CREATE TABLE sick_register (
 | 10               | D123456789 | 陳建安       | 2025-05-17     | 101         |
 +------------------+------------+--------------+----------------+-------------+
 ```
+**3.clinicroom_basic診間基本資料表**
+<table>
+  <tr>
+    <td>欄位名稱</td>
+    <td>資料型別</td>
+    <td>限制條件</td>
+    <td>說明</td>
+  </tr>
+  <tr>
+    <td>clinic_room</td>
+    <td>ENUM('101', '102', '103')</td>
+    <td>NOT NULL , 只能填寫'101', '102', '103' , PRIMARY KEY</td>
+    <td>診間編號</td>
+  </tr>
+  <tr>
+    <td>device</td>
+    <td></td>
+    <td>NOT NULL,只能填寫'Y', 'N'</td>
+    <td>設備好壞</td>
+  </tr>
+</table>
+
+```SQL
+CREATE TABLE sick_register (
+  clinic_room ENUM('101', '102', '103') NOT NULL PRIMARY KEY,
+  device ENUM('Y', 'N') NOT NULL
+);
+```
+```
++-------------+--------+
+| clinic_room | device |
++-------------+--------+
+| 101         | Y      |
+| 102         | N      |
+| 103         | Y      |
++-------------+--------+
+```
+
 ## ER圖
 ## DBMS ER EIAGRAM圖
