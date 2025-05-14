@@ -74,7 +74,7 @@ CREATE TABLE sick_basic (
   <tr>
     <td>register_number</td>
     <td>INT</td>
-    <td>NOT NULL,AUTO_INCREMENT</td>
+    <td>NOT NULL,AUTO_INCREMENT,PRIMARY KEY</td>
     <td>掛號編號</td>
   </tr>
   <tr>
@@ -111,9 +111,9 @@ CREATE TABLE sick_basic (
 
 ```SQL
 CREATE TABLE sick_register (
-  register_number INT NOT NULL,AUTO_INCREMENT,
+  register_number INT NOT NULL,AUTO_INCREMENT,PRIMARY KEY,
   sick_name VARCHAR(50) NOT NULL,
-  sick_id CHAR(10) PRIMARY KEY,
+  sick_id CHAR(10) ,
   doctor_name VARCHAR(50) NOT NULL,
   register_data DATE,
   register_time ENUM('早', '中', '晚')
@@ -124,15 +124,15 @@ CREATE TABLE sick_register (
 | register_number  | sick_name|  sick_id   | doctor_name| register_data  | register_time  |
 +------------------+----------+------------+------------+----------------+----------------+
 | 1                | 王小明   | A123456789 | 陳建安     | 2025-05-01     | 早             |
-| 2                | 李美麗   | B987654321 | 林彥廷     | 2025-05-01     | 中             |
+| 2                | 李美麗   | B287654321 | 林彥廷     | 2025-05-01     | 中             |
 | 3                | 張大華   | C135792468 | 陳建安     | 2025-05-01     | 晚             |
-| 4                | 陳志強   | D246813579 | 陳建安     | 2025-05-02     | 早             |
-| 5                | 林佳慧   | E112233445 | 林彥廷     | 2025-05-02     | 中             |
-| 6                | 黃子豪   | F556677889 | 黃怡君     | 2025-05-02     | 晚             |
-| 7                | 周宛如   | G998877665 | 黃怡君     | 2025-05-03     | 早             |
-| 8                | 許文婷   | H334455667 | 陳建安     | 2025-05-03     | 中             |
-| 9                | 邱志明   | I776655443 | 林彥廷     | 2025-05-03     | 晚             |
-| 10               | 洪佩君   | J123789456 | 黃怡君     | 2025-05-04     | 早             |
+| 4                | 陳志強   | D146813579 | 陳建安     | 2025-05-02     | 早             |
+| 5                | 林佳慧   | E212233445 | 林彥廷     | 2025-05-02     | 中             |
+| 6                | 黃子豪   | F156677889 | 黃怡君     | 2025-05-02     | 晚             |
+| 7                | 周宛如   | G298877665 | 黃怡君     | 2025-05-03     | 早             |
+| 8                | 許文婷   | H234455667 | 陳建安     | 2025-05-03     | 中             |
+| 9                | 邱志明   | I176655443 | 林彥廷     | 2025-05-03     | 晚             |
+| 10               | 洪佩君   | J223789456 | 黃怡君     | 2025-05-04     | 早             |
 +------------------+----------+------------+------------+----------------+----------------+
 ```
 
@@ -148,7 +148,7 @@ CREATE TABLE sick_register (
   <tr>
     <td>schedule_number</td>
     <td>VARCHAR(20)</td>
-    <td>NOT NULL,AUTO_INCREMENT</td>
+    <td>NOT NULL,AUTO_INCREMENT,PRIMARY KEY</td>
     <td>排班編號</td>
   </tr>
   <tr>
@@ -179,7 +179,7 @@ CREATE TABLE sick_register (
 
 ```SQL
 CREATE TABLE sick_register (
-  schedule_number VARCHAR(20) NOT NULL,AUTO_INCREMENT,
+  schedule_number VARCHAR(20) NOT NULL,AUTO_INCREMENT,PRIMARY KEY,
   doctor_id CHAR(10) ,
   doctor_name VARCHAR(50) NOT NULL,
   schedule_data DATE,
