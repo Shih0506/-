@@ -22,25 +22,25 @@
   <tr>
     <td>sick_id</td>
     <td>CHAR(10)</td>
-    <td>PRIMARY KEY,NOT NULL,第一個數字只可為1或2，長度為10</td>
+    <td>PRIMARY KEY , NOT NULL , 第一個數字只可為1或2 , 長度為10</td>
     <td>病患身分證字號</td>
   </tr>
   <tr>
     <td>sick_birth</td>
     <td>DATE</td>
-    <td>NOT NULL,不可填寫未來日期</td>
+    <td>NOT NULL , 不可填寫未來日期</td>
     <td>病患生日</td>
   </tr>
   <tr>
     <td>sick_blood</td>
     <td>CHAR(2)</td>
-    <td>NOT NULL,只可輸入'A', 'B', 'AB', 'O'</td>
+    <td>NOT NULL , 只可輸入'A', 'B', 'AB', 'O'</td>
     <td>病患血型(A,B,O,AB)</td>
   </tr>
   <tr>
     <td>sick_name</td>
     <td>VARCHAR(50)</td>
-    <td>NOT NULL,長度不可超過50字元</td>
+    <td>NOT NULL , 長度不可超過50字元</td>
     <td>病患姓名</td>
   </tr>
   <tr>
@@ -88,37 +88,37 @@ CREATE TABLE sick_basic (
   <tr>
     <td>register_number</td>
     <td>INT</td>
-    <td>NOT NULL,AUTO_INCREMENT,PRIMARY KEY</td>
+    <td>NOT NULL , AUTO_INCREMENT , PRIMARY KEY</td>
     <td>掛號編號</td>
   </tr>
   <tr>
     <td>sick_name</td>
     <td>VARCHAR(50)</td>
-    <td>NOT NULL,長度不可超過50字元</td>
+    <td>NOT NULL , 長度不可超過50字元</td>
     <td>病患姓名</td>
   </tr>
   <tr>
     <td>sick_id</td>
     <td>CHAR(10)</td>
-    <td>NOT NULL, FOREIGN KEY -> sick_register(sick_id) ,第一個數字只可為1或2，長度為10</td>
+    <td>NOT NULL , FOREIGN KEY -> sick_register(sick_id) , 第一個數字只可為1或2，長度為10</td>
     <td>病患身分證字號</td>
   </tr>
   <tr>
     <td>doctor_name</td>
     <td>VARCHAR(50)</td>
-    <td>NOT NULL,長度不可超過50字元</td>
+    <td>NOT NULL , 長度不可超過50字元</td>
     <td>醫生姓名</td>
   </tr>
   <tr>
     <td>register_data</td>
     <td>DATE</td>
-    <td>NOT NULL,不可填寫過去日期</td>
+    <td>NOT NULL , 不可填寫過去日期</td>
     <td>就診日期</td>
   </tr>
   <tr>
     <td>register_time</td>
     <td>ENUM('早', '中', '晚')</td>
-    <td>NOT NULL,只可填寫'早', '中', '晚'</td>
+    <td>NOT NULL , 只可填寫'早', '中', '晚'</td>
     <td>就診時段</td>
   </tr>
 </table>
@@ -162,7 +162,7 @@ CREATE TABLE sick_register (
   <tr>
     <td>schedule_number</td>
     <td>INT</td>
-    <td>NOT NULL,AUTO_INCREMENT,PRIMARY KEY</td>
+    <td>NOT NULL , AUTO_INCREMENT , PRIMARY KEY</td>
     <td>排班編號</td>
   </tr>
   <tr>
@@ -174,19 +174,19 @@ CREATE TABLE sick_register (
   <tr>
     <td>doctor_name</td>
     <td>VARCHAR(50)</td>
-    <td>NOT NULL,長度不可超過50字元</td>
+    <td>NOT NULL , 長度不可超過50字元</td>
     <td>醫生姓名</td>
   </tr>
   <tr>
     <td>schedule_data</td>
     <td>DATE</td>
-    <td>NOT NULL,不可填寫過去日期</td>
+    <td>NOT NULL , 不可填寫過去日期</td>
     <td>排班日期</td>
   </tr>
   <tr>
     <td>clinic_room</td>
     <td>ENUM('101', '102', '103')</td>
-    <td>NOT NULL,只能填寫'101', '102', '103'</td>
+    <td>NOT NULL , 只能填寫'101', '102', '103'</td>
     <td>診間編號</td>
   </tr>
 </table>
