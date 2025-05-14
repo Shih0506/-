@@ -22,19 +22,19 @@
   <tr>
     <td>sick_id</td>
     <td>CHAR(10)</td>
-    <td>PRIMARY KEY</td>
+    <td>PRIMARY KEY,NOT NULL</td>
     <td>病患身分證字號</td>
   </tr>
   <tr>
     <td>sick_birth</td>
     <td>DATE</td>
-    <td></td>
+    <td>NOT NULL</td>
     <td>病患生日</td>
   </tr>
   <tr>
     <td>sick_blood</td>
     <td>CHAR(2)</td>
-    <td>CHECK('A', 'B', 'AB', 'O')</td>
+    <td>NOT NULL,CHECK('A', 'B', 'AB', 'O')</td>
     <td>病患血型(A,B,O,AB)</td>
   </tr>
   <tr>
@@ -86,7 +86,7 @@ CREATE TABLE sick_basic (
   <tr>
     <td>sick_id</td>
     <td>CHAR(10)</td>
-    <td> FOREIGN KEY -> sick_register(sick_id) ,NOT NULL</td>
+    <td>NOT NULL, FOREIGN KEY -> sick_register(sick_id) </td>
     <td>病患身分證字號</td>
   </tr>
   <tr>
@@ -111,7 +111,7 @@ CREATE TABLE sick_basic (
 
 ```SQL
 CREATE TABLE sick_register (
-  register_number INT NOT NULL,AUTO_INCREMENT,PRIMARY KEY,
+  register_number INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   sick_name VARCHAR(50) NOT NULL,
   sick_id CHAR(10) ,
   doctor_name VARCHAR(50) NOT NULL,
@@ -154,7 +154,7 @@ CREATE TABLE sick_register (
   <tr>
     <td>doctor_id</td>
     <td>CHAR(10)</td>
-    <td> </td>
+    <td>NOT NULL</td>
     <td>醫生id</td>
   </tr>
   <tr>
@@ -166,23 +166,23 @@ CREATE TABLE sick_register (
   <tr>
     <td>schedule_data</td>
     <td>DATE</td>
-    <td></td>
+    <td>NOT NULL</td>
     <td>排班日期</td>
   </tr>
   <tr>
     <td>clinic_room</td>
     <td>VARCHAR(3)</td>
-    <td></td>
+    <td>NOT NULL</td>
     <td>診間編號</td>
   </tr>
 </table>
 
 ```SQL
 CREATE TABLE sick_register (
-  schedule_number VARCHAR(20) NOT NULL,AUTO_INCREMENT,PRIMARY KEY,
-  doctor_id CHAR(10) ,
+  schedule_number VARCHAR(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  doctor_id CHAR(10) NOT NULL,
   doctor_name VARCHAR(50) NOT NULL,
-  schedule_data DATE,
-  clinic_room VARCHAR(3)
+  schedule_data DATE NOT NULL,
+  clinic_room VARCHAR(3) NOT NULL
 );
 ```
