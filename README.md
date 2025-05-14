@@ -50,7 +50,7 @@
     <td>病患性別(男M女F)</td>
   </tr>
 </table>
-
+###SQL
 ```SQL
 CREATE TABLE sick_basic (
   sick_id CHAR(10) PRIMARY KEY,
