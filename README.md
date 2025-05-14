@@ -248,6 +248,6 @@ CREATE TABLE sick_register (
 ```
 
 ## ER diagram
-![ER_giagram](https://github.com/user-attachments/assets/d5d1c0dc-0771-4927-89e5-8e1e001b38dd)
+![ER_giagram (1)](https://github.com/user-attachments/assets/c92a3ed0-1a39-4e4d-8807-3543cfc65ed6)
 
 ## DBMS ER diagram
