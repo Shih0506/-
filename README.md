@@ -152,8 +152,18 @@ CREATE TABLE sick_register (
   </tr>
   <tr>
     <td>clinic_room</td>
-    <td></td>
+    <td>VARCHAR(3)</td>
     <td></td>
     <td>診間編號</td>
   </tr>
 </table>
+
+```SQL
+CREATE TABLE sick_register (
+  schedule_number VARCHAR(20) NOT NULL,AUTO_INCREMENT,
+  doctor_id CHAR(10) ,
+  doctor_name VARCHAR(50) NOT NULL,
+  schedule_data DATE,
+  clinic_room VARCHAR(3)
+);
+```
