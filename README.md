@@ -247,5 +247,7 @@ CREATE TABLE sick_register (
 +-------------+--------+
 ```
 
-## ER圖
-## DBMS ER EIAGRAM圖
+## ER diagram
+![ER_giagram](https://github.com/user-attachments/assets/d5d1c0dc-0771-4927-89e5-8e1e001b38dd)
+
+## DBMS ER diagram
