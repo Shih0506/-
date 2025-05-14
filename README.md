@@ -50,15 +50,7 @@
     <td>病患性別(男M女F)</td>
   </tr>
 </table>
-```SQL
-CREATE TABLE sick_basic (
-  sick_id CHAR(10) PRIMARY KEY,
-  sick_birth DATE,
-  sick_blood CHAR(2) CHECK (sick_blood IN ('A', 'B', 'AB', 'O')),
-  sick_name VARCHAR(50) NOT NULL,
-  sick_gender CHAR(1)
-);
-```
+
 ```
 +------------+------------+------------+-----------+-------------+
 | sick_id    | sick_birth | sick_blood | sick_name| sick_gender |
