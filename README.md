@@ -232,7 +232,7 @@ CREATE TABLE sick_register (
   </tr>
   <tr>
     <td>device</td>
-    <td></td>
+    <td>ENUM('Y', 'N')</td>
     <td>NOT NULL,只能填寫'Y', 'N'</td>
     <td>設備好壞</td>
   </tr>
