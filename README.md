@@ -86,7 +86,7 @@ CREATE TABLE sick_basic (
   <tr>
     <td>sick_id</td>
     <td>CHAR(10)</td>
-    <td> FOREIGN KEY -> sick_register(sick_id)</td>
+    <td> FOREIGN KEY -> sick_register(sick_id) ,NOT NULL</td>
     <td>病患身分證字號</td>
   </tr>
   <tr>
@@ -98,13 +98,13 @@ CREATE TABLE sick_basic (
   <tr>
     <td>register_data</td>
     <td>DATE</td>
-    <td></td>
+    <td>NOT NULL</td>
     <td>就診日期</td>
   </tr>
   <tr>
     <td>register_time</td>
     <td>ENUM('早', '中', '晚')</td>
-    <td></td>
+    <td>NOT NULL</td>
     <td>就診時段</td>
   </tr>
 </table>
