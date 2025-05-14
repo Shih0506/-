@@ -73,7 +73,7 @@ CREATE TABLE sick_basic (
   </tr>
   <tr>
     <td>register_number</td>
-    <td>VARCHAR(20)</td>
+    <td>INT</td>
     <td>NOT NULL,AUTO_INCREMENT</td>
     <td>掛號編號</td>
   </tr>
@@ -111,7 +111,7 @@ CREATE TABLE sick_basic (
 
 ```SQL
 CREATE TABLE sick_register (
-  register_number VARCHAR(20) NOT NULL,AUTO_INCREMENT,
+  register_number INT NOT NULL,AUTO_INCREMENT,
   sick_name VARCHAR(50) NOT NULL,
   sick_id CHAR(10) PRIMARY KEY,
   doctor_name VARCHAR(50) NOT NULL,
