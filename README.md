@@ -147,7 +147,7 @@ CREATE TABLE sick_register (
   </tr>
   <tr>
     <td>schedule_number</td>
-    <td>VARCHAR(20)</td>
+    <td>INT</td>
     <td>NOT NULL,AUTO_INCREMENT,PRIMARY KEY</td>
     <td>排班編號</td>
   </tr>
@@ -179,7 +179,7 @@ CREATE TABLE sick_register (
 
 ```SQL
 CREATE TABLE sick_register (
-  schedule_number VARCHAR(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  schedule_number INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   doctor_id CHAR(10) NOT NULL,
   doctor_name VARCHAR(50) NOT NULL,
   schedule_data DATE NOT NULL,
