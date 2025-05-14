@@ -38,7 +38,7 @@
     <td>病患血型(A,B,O,AB)</td>
   </tr>
   <tr>
-    <td>sick_nama</td>
+    <td>sick_name</td>
     <td>VARCHAR(50)</td>
     <td>NOT NULL</td>
     <td>病患姓名</td>
@@ -76,7 +76,7 @@ CREATE TABLE sick_basic (
     <td>掛號編號</td>
   </tr>
   <tr>
-    <td>sick_nama</td>
+    <td>sick_name</td>
     <td>VARCHAR(50)</td>
     <td>NOT NULL</td>
     <td>病患姓名</td>
@@ -118,3 +118,42 @@ CREATE TABLE sick_register (
 );
 ```
 
+**doc_schedule排班資料表**
+<table>
+  <tr>
+    <td>欄位名稱</td>
+    <td>資料型別</td>
+    <td>限制條件</td>
+    <td>說明</td>
+  </tr>
+  <tr>
+    <td>schedule_number</td>
+    <td>VARCHAR(20)</td>
+    <td>NOT NULL,AUTO_INCREMENT</td>
+    <td>排班編號</td>
+  </tr>
+  <tr>
+    <td>doctor_id</td>
+    <td>CHAR(10)</td>
+    <td> </td>
+    <td>醫生id</td>
+  </tr>
+  <tr>
+    <td>doctor_nama</td>
+    <td>VARCHAR(50)</td>
+    <td>NOT NULL</td>
+    <td>醫生姓名</td>
+  </tr>
+  <tr>
+    <td>schedule_data</td>
+    <td>DATE</td>
+    <td></td>
+    <td>排班日期</td>
+  </tr>
+  <tr>
+    <td>clinic_room</td>
+    <td></td>
+    <td></td>
+    <td>診間編號</td>
+  </tr>
+</table>
