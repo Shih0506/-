@@ -22,31 +22,31 @@
   <tr>
     <td>sick_id</td>
     <td>CHAR(10)</td>
-    <td>PRIMARY KEY,NOT NULL</td>
+    <td>PRIMARY KEY,NOT NULL,第一個數字只可為1或2，長度為10</td>
     <td>病患身分證字號</td>
   </tr>
   <tr>
     <td>sick_birth</td>
     <td>DATE</td>
-    <td>NOT NULL</td>
+    <td>NOT NULL,不可填寫未來日期</td>
     <td>病患生日</td>
   </tr>
   <tr>
     <td>sick_blood</td>
     <td>CHAR(2)</td>
-    <td>NOT NULL,CHECK('A', 'B', 'AB', 'O')</td>
+    <td>NOT NULL,只可輸入'A', 'B', 'AB', 'O'</td>
     <td>病患血型(A,B,O,AB)</td>
   </tr>
   <tr>
     <td>sick_name</td>
     <td>VARCHAR(50)</td>
-    <td>NOT NULL</td>
+    <td>NOT NULL,長度不可超過50字元</td>
     <td>病患姓名</td>
   </tr>
   <tr>
     <td>sick_gender</td>
     <td>CHAR(1)</td>
-    <td></td>
+    <td>只可填寫M或F</td>
     <td>病患性別(男M女F)</td>
   </tr>
 </table>
@@ -94,31 +94,31 @@ CREATE TABLE sick_basic (
   <tr>
     <td>sick_name</td>
     <td>VARCHAR(50)</td>
-    <td>NOT NULL</td>
+    <td>NOT NULL,長度不可超過50字元</td>
     <td>病患姓名</td>
   </tr>
   <tr>
     <td>sick_id</td>
     <td>CHAR(10)</td>
-    <td>NOT NULL, FOREIGN KEY -> sick_register(sick_id) </td>
+    <td>NOT NULL, FOREIGN KEY -> sick_register(sick_id) ,第一個數字只可為1或2，長度為10</td>
     <td>病患身分證字號</td>
   </tr>
   <tr>
     <td>doctor_name</td>
     <td>VARCHAR(50)</td>
-    <td>NOT NULL</td>
+    <td>NOT NULL,長度不可超過50字元</td>
     <td>醫生姓名</td>
   </tr>
   <tr>
     <td>register_data</td>
     <td>DATE</td>
-    <td>NOT NULL</td>
+    <td>NOT NULL,不可填寫過去日期</td>
     <td>就診日期</td>
   </tr>
   <tr>
     <td>register_time</td>
     <td>ENUM('早', '中', '晚')</td>
-    <td>NOT NULL</td>
+    <td>NOT NULL,只可填寫'早', '中', '晚'</td>
     <td>就診時段</td>
   </tr>
 </table>
@@ -174,19 +174,19 @@ CREATE TABLE sick_register (
   <tr>
     <td>doctor_name</td>
     <td>VARCHAR(50)</td>
-    <td>NOT NULL</td>
+    <td>NOT NULL,長度不可超過50字元</td>
     <td>醫生姓名</td>
   </tr>
   <tr>
     <td>schedule_data</td>
     <td>DATE</td>
-    <td>NOT NULL</td>
+    <td>NOT NULL,不可填寫過去日期</td>
     <td>排班日期</td>
   </tr>
   <tr>
     <td>clinic_room</td>
-    <td>VARCHAR(3)</td>
-    <td>NOT NULL</td>
+    <td>ENUM('101', '102', '103')</td>
+    <td>NOT NULL,只能填寫'101', '102', '103'</td>
     <td>診間編號</td>
   </tr>
 </table>
@@ -197,7 +197,7 @@ CREATE TABLE sick_register (
   doctor_id CHAR(10) NOT NULL,
   doctor_name VARCHAR(50) NOT NULL,
   schedule_data DATE NOT NULL,
-  clinic_room VARCHAR(3) NOT NULL
+  clinic_room ENUM('101', '102', '103') NOT NULL
 );
 ```
 ```
