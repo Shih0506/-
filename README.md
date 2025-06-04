@@ -22,31 +22,64 @@
   <tr>
     <td>sick_id</td>
     <td>CHAR(10)</td>
-    <td>PRIMARY KEY , NOT NULL , 第一個數字只可為1或2 , 長度為10</td>
+    <td>PRIMARY KEY , NOT NULL</td>
     <td>病患身分證字號</td>
   </tr>
   <tr>
     <td>sick_birth</td>
     <td>DATE</td>
-    <td>NOT NULL , 不可填寫未來日期</td>
+    <td>NOT NULL</td>
     <td>病患生日</td>
   </tr>
   <tr>
     <td>sick_blood</td>
     <td>CHAR(2)</td>
-    <td>NOT NULL , 只可輸入'A', 'B', 'AB', 'O'</td>
+    <td>NOT NULL</td>
     <td>病患血型(A,B,O,AB)</td>
   </tr>
   <tr>
     <td>sick_name</td>
-    <td>string</td>
-    <td>NOT NULL , 長度不可超過50字元</td>
+    <td>STRING</td>
+    <td>NOT NULL</td>
     <td>病患姓名</td>
   </tr>
   <tr>
     <td>sick_gender</td>
     <td>CHAR(1)</td>
     <td>只可填寫M或F</td>
+    <td>病患性別(男M女F)</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td>欄位名稱</td>
+    <td>限制條件</td>
+    <td>說明</td>
+  </tr>
+  <tr>
+    <td>sick_id</td>
+    <td>第一個字元只可為大寫字母，第二個字元則是1或2 , 總長度10</td>
+    <td>病患身分證字號</td>
+  </tr>
+  <tr>
+    <td>sick_birth</td>
+    <td>日期格式為 yyyy-mm-dd ， 不可填寫未來日期</td>
+    <td>病患生日</td>
+  </tr>
+  <tr>
+    <td>sick_blood</td>
+    <td>只可輸入'A', 'B', 'AB', 'O' ， 不能含有數字、特殊符號、除這四種英文字組外的英文出現</td>
+    <td>病患血型</td>
+  </tr>
+  <tr>
+    <td>sick_name</td>
+    <td>長度不可超過50字元 ， 不包含特殊符號</td>
+    <td>病患姓名</td>
+  </tr>
+  <tr>
+    <td>sick_gender</td>
+    <td>只可填寫M或F ， </td>
     <td>病患性別(男M女F)</td>
   </tr>
 </table>
