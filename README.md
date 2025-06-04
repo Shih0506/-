@@ -79,7 +79,7 @@
   </tr>
   <tr>
     <td>sick_gender</td>
-    <td>只可填寫M或F ， </td>
+    <td>只可填寫`M`或`F` ， 不能含有數字、特殊符號、除這兩種英文字外的英文出現</td>
     <td>病患性別(男M女F)</td>
   </tr>
 </table>
@@ -120,35 +120,70 @@ CREATE TABLE sick_basic (
   </tr>
   <tr>
     <td>register_number</td>
-    <td>INTEGER</td>
-    <td>NOT NULL , AUTO_INCREMENT , PRIMARY KEY</td>
+    <td>CHAR(10)</td>
+    <td> PRIMARY KEY</td>
     <td>掛號編號</td>
   </tr>
   <tr>
     <td>sick_id</td>
     <td>CHAR(10)</td>
-    <td>NOT NULL , FOREIGN KEY -> sick_register(sick_id) , 第一個數字只可為1或2，長度為10</td>
+    <td>NOT NULL , FOREIGN KEY -> sick_register(sick_id) </td>
     <td>病患身分證字號</td>
   </tr>
   <tr>
     <td>doctor_name</td>
-    <td>string</td>
-    <td>NOT NULL , 長度不可超過50字元</td>
+    <td>STRING</td>
+    <td>NOT NULL </td>
     <td>醫生姓名</td>
   </tr>
   <tr>
     <td>register_data</td>
     <td>DATE</td>
-    <td>NOT NULL , 不可填寫過去日期</td>
+    <td>NOT NULL </td>
     <td>就診日期</td>
   </tr>
   <tr>
     <td>register_time</td>
     <td>CHAR(1)</td>
-    <td>NOT NULL , 只可填寫'早', '中', '晚'</td>
+    <td>NOT NULL </td>
     <td>就診時段</td>
   </tr>
 </table>
+
+<table>
+  <tr>
+    <td>欄位名稱</td>
+    <td>完整性限制</td>
+    <td>說明</td>
+  </tr>
+  <tr>
+    <td>register_number</td>
+    <td>格式為前六碼為日期，後兩碼為大於0小於100的雙數編號</td>
+    <td>掛號編號</td>
+  </tr>
+  <tr>
+    <td>sick_id</td>
+    <td>第一個字元只可為大寫字母，第二個字元則是1或2 , 總長度10</td>
+    <td>病患身分證字號</td>
+  </tr>
+  <tr>
+    <td>doctor_name</td>
+    <td>長度不可超過50字元 ， 不包含特殊符號</td>
+    <td>醫生姓名</td>
+  </tr>
+  <tr>
+    <td>register_data</td>
+    <td>格式為 yyyy-mm-dd ， 不可填寫過去日期</td>
+    <td>就診日期</td>
+  </tr>
+  <tr>
+    <td>register_time</td>
+    <td>CHAR(1)</td>
+    <td>只可填寫'早', '中', '晚' ， 不能含有數字、特殊符號、除這四種文字外的字出現</td>
+    <td>就診時段</td>
+  </tr>
+</table>
+
 
 ```SQL
 CREATE TABLE sick_register (
@@ -159,6 +194,8 @@ CREATE TABLE sick_register (
   register_time ENUM('早', '中', '晚')
 );
 ```
+
+建立 Trigger 自動產生 register_number
 ```SQL
 DELIMITER $$
 
