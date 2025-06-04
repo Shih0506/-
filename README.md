@@ -471,7 +471,10 @@ b.管理員
 | 查出同一病患在同一天是否重複掛號 | `sick_register(sick_id, register_data), COUNT(*) AS count_per_day` | 查出同一病患在同一天是否重複掛號，若次數大於1則顯示                |
 
 ## ER diagram
-![ER_giagram](https://github.com/user-attachments/assets/62b1c441-aa84-49d9-9f8f-b755c250f13e)
+![04](https://github.com/user-attachments/assets/fc367963-a929-4849-99a2-90172d52e59c)
 
 
 ## DBMS ER diagram
+![drawSQL-image-export-2025-06-04](https://github.com/user-attachments/assets/9a30530b-e4e9-42dc-9c49-a73f61cac90b)
+
+
