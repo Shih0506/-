@@ -456,10 +456,8 @@ a.一般使用者
 | 名稱                     | 選擇的屬性                                                                 | 說明                                                                 |
 |--------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------------|
 | 查詢個人掛號記錄         | `sick_register(register_number, doctor_name, register_data, register_time)` | 病患可以查詢自己的掛號記錄，包含掛號號碼、醫師姓名、掛號日期及時間 |
-| 查詢個人即將到來的掛號   | `sick_register(register_number, doctor_name, register_data, register_time)` | 病患可以查詢未來尚未進行的掛號，方便確認未來的就診安排             |
 | 查詢可預約的醫師與時段   | `sick_register(schedule_number, doctor_name, schedule_data, clinic_room)` | 病患可以查詢目前可預約的醫師與時段，包含排班號碼、醫師姓名、日期及診間 |
 | 查詢個人基本資料         | `sick_basic(sick_id, sick_name, sick_gender, sick_birth, sick_blood)`     | 病患可以查看自己的基本資料，包含姓名、性別、生日及血型             |
-| 查詢醫師專長資訊         | `doctor(doctor_id, doctor_name, specialty)`                               | 病患可以查詢醫師的專長資訊，方便選擇適合的醫師進行掛號             |
 
 b.管理員
 | 名稱                     | 選擇的屬性                                                                 | 說明                                                                 |
@@ -467,8 +465,76 @@ b.管理員
 | 系統內今日掛號單         | `sick_register(register_number, sick_id, doctor_name, register_data, register_time)` | 管理者可以查詢到當日掛號單資訊，包含掛號號碼、病患ID、醫師姓名、掛號日期及時間 |
 | 今日醫生排班表           | `sick_register(schedule_number, doctor_id, doctor_name, schedule_data, clinic_room)` | 查詢今日醫生排班表，包含排班號碼、醫師ID、醫師姓名、排班日期及診間 |
 | 管理者透過今日掛號單查詢患者個人資料 | `sick_basic(sick_id, sick_name, sick_gender, sick_birth, sick_blood)` | 管理者可透過掛號單以病患身分字號查詢個人資料，包含姓名、性別、生日及血型 |
-| 統計每位醫師今日看診數   | `sick_register(doctor_name), COUNT(*) AS pending_patient_count`            | 統計每位醫師今日看診人數                                           |
+| 統計每位醫師今日看診數   | `sick_register(doctor_name), COUNT(*) AS pending_patient_count`            | 統計每位醫師今日看診人數                                         |
 | 查出同一病患在同一天是否重複掛號 | `sick_register(sick_id, register_data), COUNT(*) AS count_per_day` | 查出同一病患在同一天是否重複掛號，若次數大於1則顯示                |
+
+
+**1.系統內今日掛號單**
+```sql
+-- 系統內今日掛號單
+CREATE VIEW sick_register_today AS
+SELECT 
+  register_number, 
+  sick_id, 
+  doctor_name, 
+  register_data, 
+  register_time
+FROM sick_register
+WHERE register_data = CURDATE();
+```
+
+**2.今日醫生排班表**
+```sql
+-- 今日醫生排班表
+CREATE VIEW today_doctor_schedule_view AS
+SELECT 
+  schedule_number,
+  doctor_id,
+  doctor_name,
+  schedule_data,
+  clinic_room
+FROM sick_register
+WHERE schedule_data = CURDATE();
+```
+**3.管理者透過今日掛號單查詢患者個人資料**
+```sql
+-- 管理者透過今日掛號單查詢患者個人資料
+CREATE VIEW today_sick_basic_info_view AS
+SELECT 
+  b.sick_id,
+  b.sick_name,
+  b.sick_gender,
+  b.sick_birth,
+  b.sick_blood
+FROM sick_register r
+JOIN sick_basic b ON r.sick_id = b.sick_id
+WHERE r.register_data = CURDATE();
+```
+
+**4.統計每位醫師今日看診數**
+```sql
+-- 統計每位醫師今日看診數
+CREATE VIEW today_doctor_pending_patients_view AS
+SELECT 
+  doctor_name,
+  COUNT(*) AS pending_patient_count
+FROM sick_register
+WHERE register_data = CURDATE()
+GROUP BY doctor_name;
+```
+
+**5.查出同一病患在同一天是否重複掛號**
+```sql
+-- 查出同一病患在同一天是否重複掛號
+CREATE VIEW duplicate_register_check_view AS
+SELECT 
+  sick_id,
+  register_data,
+  COUNT(*) AS count_per_day
+FROM sick_register
+GROUP BY sick_id, register_data
+HAVING COUNT(*) > 1;
+```
 
 ## ER diagram
 ![04](https://github.com/user-attachments/assets/fc367963-a929-4849-99a2-90172d52e59c)
