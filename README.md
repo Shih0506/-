@@ -451,6 +451,7 @@ CREATE TABLE doctor_register (
 | 22025003   | 王柏霖     |
 +------------+------------+
 ```
+##VIEW表設計
 
 ## ER diagram
 ![ER_giagram](https://github.com/user-attachments/assets/62b1c441-aa84-49d9-9f8f-b755c250f13e)
