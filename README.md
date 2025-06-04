@@ -459,6 +459,69 @@ a.一般使用者
 | 查詢可預約的醫師與時段   | `sick_register(schedule_number, doctor_name, schedule_data, clinic_room)` | 病患可以查詢目前可預約的醫師與時段，包含排班號碼、醫師姓名、日期及診間 |
 | 查詢個人基本資料         | `sick_basic(sick_id, sick_name, sick_gender, sick_birth, sick_blood)`     | 病患可以查看自己的基本資料，包含姓名、性別、生日及血型             |
 
+**查詢個人掛號記錄**
+```sql
+-- 查詢個人掛號記錄
+CREATE VIEW personal_register_history_view AS
+SELECT 
+  r.register_number,
+  r.sick_id,
+  b.sick_name,
+  b.sick_gender,
+  b.sick_birth,
+  b.sick_blood,
+  r.doctor_name,
+  r.register_data,
+  r.register_time
+FROM sick_register r
+JOIN sick_basic b ON r.sick_id = b.sick_id;
+SELECT * 
+FROM personal_register_history_view 
+WHERE sick_id = 'A123456789';
+```
+
+**查詢可預約的醫師與時段**
+```sql
+-- 查詢可預約的醫師與時段
+CREATE VIEW available_doctor_schedule_view AS
+SELECT 
+  ds.schedule_number,
+  ds.doctor_id,
+  ds.doctor_name,
+  ds.schedule_date,
+  ds.schedule_time,
+  ds.clinic_room,
+  33 - COUNT(sr.register_number) AS available_slots
+FROM doctor_schedule ds
+LEFT JOIN sick_register sr
+  ON ds.doctor_id = sr.doctor_id
+  AND ds.schedule_date = sr.register_date
+  AND ds.schedule_time = sr.register_time
+GROUP BY 
+  ds.schedule_number,
+  ds.doctor_id,
+  ds.doctor_name,
+  ds.schedule_date,
+  ds.schedule_time,
+  ds.clinic_room
+HAVING available_slots > 0;
+```
+
+**查詢個人基本資料**
+```sql
+-- 查詢個人基本資料
+CREATE VIEW user_basic_info_view AS
+SELECT
+  sick_id,
+  sick_name,
+  sick_gender,
+  sick_birth,
+  sick_blood
+FROM sick_basic;
+SELECT * FROM user_basic_info_view
+WHERE sick_id = 'A123456789';
+```
+
 b.管理員
 | 名稱                     | 選擇的屬性                                                                 | 說明                                                                 |
 |--------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------------|
