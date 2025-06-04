@@ -54,7 +54,7 @@
 <table>
   <tr>
     <td>欄位名稱</td>
-    <td>限制條件</td>
+    <td>完整性限制</td>
     <td>說明</td>
   </tr>
   <tr>
