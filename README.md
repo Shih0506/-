@@ -451,7 +451,24 @@ CREATE TABLE doctor_register (
 | 22025003   | 王柏霖     |
 +------------+------------+
 ```
-##VIEW表設計
+## VIEW表設計
+a.一般使用者
+| 名稱                     | 選擇的屬性                                                                 | 說明                                                                 |
+|--------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------------|
+| 查詢個人掛號記錄         | `sick_register(register_number, doctor_name, register_data, register_time)` | 病患可以查詢自己的掛號記錄，包含掛號號碼、醫師姓名、掛號日期及時間 |
+| 查詢個人即將到來的掛號   | `sick_register(register_number, doctor_name, register_data, register_time)` | 病患可以查詢未來尚未進行的掛號，方便確認未來的就診安排             |
+| 查詢可預約的醫師與時段   | `sick_register(schedule_number, doctor_name, schedule_data, clinic_room)` | 病患可以查詢目前可預約的醫師與時段，包含排班號碼、醫師姓名、日期及診間 |
+| 查詢個人基本資料         | `sick_basic(sick_id, sick_name, sick_gender, sick_birth, sick_blood)`     | 病患可以查看自己的基本資料，包含姓名、性別、生日及血型             |
+| 查詢醫師專長資訊         | `doctor(doctor_id, doctor_name, specialty)`                               | 病患可以查詢醫師的專長資訊，方便選擇適合的醫師進行掛號             |
+
+b.管理員
+| 名稱                     | 選擇的屬性                                                                 | 說明                                                                 |
+|--------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------------|
+| 系統內今日掛號單         | `sick_register(register_number, sick_id, doctor_name, register_data, register_time)` | 管理者可以查詢到當日掛號單資訊，包含掛號號碼、病患ID、醫師姓名、掛號日期及時間 |
+| 今日醫生排班表           | `sick_register(schedule_number, doctor_id, doctor_name, schedule_data, clinic_room)` | 查詢今日醫生排班表，包含排班號碼、醫師ID、醫師姓名、排班日期及診間 |
+| 管理者透過今日掛號單查詢患者個人資料 | `sick_basic(sick_id, sick_name, sick_gender, sick_birth, sick_blood)` | 管理者可透過掛號單以病患身分字號查詢個人資料，包含姓名、性別、生日及血型 |
+| 統計每位醫師今日看診數   | `sick_register(doctor_name), COUNT(*) AS pending_patient_count`            | 統計每位醫師今日看診人數                                           |
+| 查出同一病患在同一天是否重複掛號 | `sick_register(sick_id, register_data), COUNT(*) AS count_per_day` | 查出同一病患在同一天是否重複掛號，若次數大於1則顯示                |
 
 ## ER diagram
 ![ER_giagram](https://github.com/user-attachments/assets/62b1c441-aa84-49d9-9f8f-b755c250f13e)
