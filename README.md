@@ -357,7 +357,7 @@ CREATE TABLE sick_register (
   </tr>
   <tr>
     <td>device</td>
-    <td>ENUM('Y', 'N')</td>
+    <td>CHAR(1)</td>
     <td>NOT NULL</td>
     <td>設備好壞</td>
   </tr>
