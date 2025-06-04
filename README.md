@@ -178,8 +178,7 @@ CREATE TABLE sick_basic (
   </tr>
   <tr>
     <td>register_time</td>
-    <td>CHAR(1)</td>
-    <td>只可填寫'早', '中', '晚' ， 不能含有數字、特殊符號、除這四種文字外的字出現</td>
+    <td>只可填寫'早', '中', '晚' ， 不能含有數字、特殊符號、除這三種文字外的字出現</td>
     <td>就診時段</td>
   </tr>
 </table>
@@ -272,26 +271,61 @@ DELIMITER ;
   </tr>
   <tr>
     <td>doctor_id</td>
-    <td>CHAR(10)</td>
+    <td>CHAR(8)</td>
     <td>NOT NULL</td>
     <td>醫生id</td>
   </tr>
   <tr>
     <td>doctor_name</td>
-    <td>string</td>
-    <td>NOT NULL , 長度不可超過50字元</td>
+    <td>STRING</td>
+    <td>NOT NULL</td>
     <td>醫生姓名</td>
   </tr>
   <tr>
     <td>schedule_data</td>
     <td>DATE</td>
-    <td>NOT NULL , 不可填寫過去日期</td>
+    <td>NOT NULL</td>
     <td>排班日期</td>
   </tr>
   <tr>
     <td>clinic_room</td>
     <td>INTEGER</td>
-    <td>NOT NULL , 只能填寫'101', '102', '103', FOREIGN KEY -> clinicroom_basic(clinic_room) , 若診間設備為'N'則不可填寫</td>
+    <td>NOT NULL, FOREIGN KEY -> clinicroom_basic(clinic_room) </td>
+    <td>診間編號</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td>欄位名稱</td>
+    <td>完整性限制</td>
+    <td>說明</td>
+  </tr>
+  <tr>
+    <td>schedule_number</td>
+    <td>系統依照順序編號編號，從1開始的整數</td>
+    <td>排班編號</td>
+  </tr>
+  <tr>
+    <td>doctor_id</td>
+    <td>只可為八碼的數字</td>
+    <td>醫生id</td>
+  </tr>
+  <tr>
+    <td>doctor_name</td>
+    <td>長度不可超過50字元 ， 不包含特殊字元</td>
+    <td>醫生姓名</td>
+  </tr>
+  <tr>
+    <td>schedule_data</td>
+    <td>DATE</td>
+    <td>格式為 yyyy-mm-dd ， 不可填寫過去日期</td>
+    <td>排班日期</td>
+  </tr>
+  <tr>
+    <td>clinic_room</td>
+    <td>INTEGER</td>
+    <td>只能填寫'101', '102', '103' ， 不能含有數字、特殊符號、除這三種數組外的數組出現 , 系統若查詢到診間設備為'N'則不可填寫</td>
     <td>診間編號</td>
   </tr>
 </table>
@@ -299,7 +333,7 @@ DELIMITER ;
 ```SQL
 CREATE TABLE sick_register (
   schedule_number INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  doctor_id CHAR(10) NOT NULL,
+  doctor_id CHAR(8) NOT NULL,
   doctor_name VARCHAR(50) NOT NULL,
   schedule_data DATE NOT NULL,
   clinic_room ENUM('101', '102', '103') NOT NULL
@@ -321,7 +355,7 @@ CREATE TABLE sick_register (
 | 10               | D123456789 | 陳建安       | 2025-05-17     | 101         |
 +------------------+------------+--------------+----------------+-------------+
 ```
-**3.clinic_room_basic診間基本資料表**
+**4.clinic_room_basic診間基本資料表**
 <table>
   <tr>
     <td>欄位名稱</td>
@@ -332,13 +366,31 @@ CREATE TABLE sick_register (
   <tr>
     <td>clinic_room</td>
     <td>INTEGER</td>
-    <td>NOT NULL , 只能填寫'101', '102', '103' , PRIMARY KEY</td>
+    <td>NOT NULL , PRIMARY KEY</td>
     <td>診間編號</td>
   </tr>
   <tr>
     <td>device</td>
     <td>ENUM('Y', 'N')</td>
     <td>NOT NULL,只能填寫'Y', 'N'</td>
+    <td>設備好壞</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td>欄位名稱</td>
+    <td>完整性限制</td>
+    <td>說明</td>
+  </tr>
+  <tr>
+    <td>clinic_room</td>
+    <td>為'101', '102', '103'</td>
+    <td>診間編號</td>
+  </tr>
+  <tr>
+    <td>device</td>
+    <td>只能填寫'Y', 'N' ，  不能含有數字、特殊符號、除這兩種英文外的字母出現</td>
     <td>設備好壞</td>
   </tr>
 </table>
