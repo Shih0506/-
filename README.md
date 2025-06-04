@@ -396,7 +396,7 @@ CREATE TABLE sick_register (
 | 103         | Y      |
 +-------------+--------+
 ```
-**4.doctor_basic基本資料表**
+**5.doctor_basic基本資料表**
 <table>
   <tr>
     <td>欄位名稱</td>
