@@ -152,13 +152,55 @@ CREATE TABLE sick_basic (
 
 ```SQL
 CREATE TABLE sick_register (
-  register_number INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  register_number CHAR(10)  PRIMARY KEY,
   sick_id CHAR(10) ,
   doctor_name VARCHAR(50) NOT NULL,
   register_data DATE,
   register_time ENUM('早', '中', '晚')
 );
 ```
+```SQL
+DELIMITER $$
+
+CREATE TRIGGER before_insert_sick_register
+BEFORE INSERT ON sick_register
+FOR EACH ROW
+BEGIN
+  DECLARE reg_prefix CHAR(8);
+  DECLARE next_suffix CHAR(2);
+  DECLARE max_suffix INT;
+
+  -- 建立 YYYYMMDD 字串
+  SET reg_prefix = DATE_FORMAT(NEW.register_data, '%Y%m%d');
+
+  -- 取出今天的最大後兩碼數字
+  SELECT MAX(CAST(RIGHT(register_number, 2) AS UNSIGNED))
+  INTO max_suffix
+  FROM sick_register
+  WHERE LEFT(register_number, 8) = reg_prefix;
+
+  -- 若今天沒有掛號過，就從 2 開始，否則下一個雙數
+  IF max_suffix IS NULL THEN
+    SET next_suffix = '02';
+  ELSE
+    SET max_suffix = max_suffix + 2;
+
+    -- 若超過 98，報錯（最多 49 筆）
+    IF max_suffix > 98 THEN
+      SIGNAL SQLSTATE '45000'
+      SET MESSAGE_TEXT = '當日掛號已滿（最大為 98）';
+    END IF;
+
+    SET next_suffix = LPAD(max_suffix, 2, '0');
+  END IF;
+
+  -- 合併成完整 register_number
+  SET NEW.register_number = CONCAT(reg_prefix, next_suffix);
+END$$
+
+DELIMITER ;
+```
+
 ```
 +------------------+------------+------------+----------------+----------------+
 | register_number  |  sick_id   | doctor_name| register_data  | register_time  |
