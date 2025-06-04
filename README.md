@@ -39,7 +39,7 @@
   </tr>
   <tr>
     <td>sick_name</td>
-    <td>VARCHAR(50)</td>
+    <td>string</td>
     <td>NOT NULL , 長度不可超過50字元</td>
     <td>病患姓名</td>
   </tr>
@@ -87,7 +87,7 @@ CREATE TABLE sick_basic (
   </tr>
   <tr>
     <td>register_number</td>
-    <td>INT</td>
+    <td>INTEGER</td>
     <td>NOT NULL , AUTO_INCREMENT , PRIMARY KEY</td>
     <td>掛號編號</td>
   </tr>
@@ -99,7 +99,7 @@ CREATE TABLE sick_basic (
   </tr>
   <tr>
     <td>doctor_name</td>
-    <td>VARCHAR(50)</td>
+    <td>string</td>
     <td>NOT NULL , 長度不可超過50字元</td>
     <td>醫生姓名</td>
   </tr>
@@ -111,7 +111,7 @@ CREATE TABLE sick_basic (
   </tr>
   <tr>
     <td>register_time</td>
-    <td>ENUM('早', '中', '晚')</td>
+    <td>CHAR(1)</td>
     <td>NOT NULL , 只可填寫'早', '中', '晚'</td>
     <td>就診時段</td>
   </tr>
@@ -154,7 +154,7 @@ CREATE TABLE sick_register (
   </tr>
   <tr>
     <td>schedule_number</td>
-    <td>INT</td>
+    <td>INTEGER</td>
     <td>NOT NULL , AUTO_INCREMENT , PRIMARY KEY</td>
     <td>排班編號</td>
   </tr>
@@ -166,7 +166,7 @@ CREATE TABLE sick_register (
   </tr>
   <tr>
     <td>doctor_name</td>
-    <td>VARCHAR(50)</td>
+    <td>string</td>
     <td>NOT NULL , 長度不可超過50字元</td>
     <td>醫生姓名</td>
   </tr>
@@ -178,7 +178,7 @@ CREATE TABLE sick_register (
   </tr>
   <tr>
     <td>clinic_room</td>
-    <td>ENUM('101', '102', '103')</td>
+    <td>INTEGER</td>
     <td>NOT NULL , 只能填寫'101', '102', '103', FOREIGN KEY -> clinicroom_basic(clinic_room) , 若診間設備為'N'則不可填寫</td>
     <td>診間編號</td>
   </tr>
@@ -219,7 +219,7 @@ CREATE TABLE sick_register (
   </tr>
   <tr>
     <td>clinic_room</td>
-    <td>ENUM('101', '102', '103')</td>
+    <td>INTEGER</td>
     <td>NOT NULL , 只能填寫'101', '102', '103' , PRIMARY KEY</td>
     <td>診間編號</td>
   </tr>
