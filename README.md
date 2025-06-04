@@ -453,6 +453,7 @@ CREATE TABLE doctor_register (
 ```
 
 ## ER diagram
-![ER_giagram](https://github.com/user-attachments/assets/66e3bddc-256f-4477-8b34-eef7cf8d6e4f)
+![ER_giagram](https://github.com/user-attachments/assets/62b1c441-aa84-49d9-9f8f-b755c250f13e)
+
 
 ## DBMS ER diagram
