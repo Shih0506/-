@@ -426,7 +426,7 @@ CREATE TABLE sick_register (
   </tr>
   <tr>
     <td>doctor_id</td>
-    <td>NOT NULL , PRIMARY KEY</td>
+    <td>只可為八碼的數字</td>
     <td>醫師編號</td>
   </tr>
   <tr>
@@ -446,9 +446,9 @@ CREATE TABLE doctor_register (
 +------------+------------+
 | doctor_id  | doctor_name|
 +------------+------------+
-| 92025001   | 陳建宏     |
-| 62025002   | 林怡君     |
-| 22025003   | 王柏霖     |
+| 92025001   | 陳建安     |
+| 62025002   | 林彥廷     |
+| 22025003   | 黃怡君     |
 +------------+------------+
 ```
 ## VIEW表設計
