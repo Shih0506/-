@@ -406,7 +406,7 @@ CREATE TABLE sick_register (
   </tr>
   <tr>
     <td>clinic_room</td>
-    <td>INTEGER</td>
+    <td>CHAR(8)</td>
     <td>NOT NULL , PRIMARY KEY</td>
     <td>醫師編號</td>
   </tr>
@@ -426,7 +426,6 @@ CREATE TABLE sick_register (
   </tr>
   <tr>
     <td>doctor_id</td>
-    <td>CHAR(8)</td>
     <td>NOT NULL , PRIMARY KEY</td>
     <td>醫師編號</td>
   </tr>
