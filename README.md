@@ -272,7 +272,7 @@ DELIMITER ;
   <tr>
     <td>doctor_id</td>
     <td>CHAR(8)</td>
-    <td>NOT NULL</td>
+    <td>NOT NULL , FOREIGN KEY -> doctor_basic(doctor_id) </td>
     <td>醫生id</td>
   </tr>
   <tr>
@@ -284,7 +284,7 @@ DELIMITER ;
   <tr>
     <td>clinic_room</td>
     <td>INTEGER</td>
-    <td>NOT NULL, FOREIGN KEY -> clinicroom_basic(clinic_room) </td>
+    <td>NOT NULL , FOREIGN KEY -> clinicroom_basic(clinic_room) </td>
     <td>診間編號</td>
   </tr>
 </table>
