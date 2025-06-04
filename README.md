@@ -456,7 +456,7 @@ a.一般使用者
 | 名稱                     | 選擇的屬性                                                                 | 說明                                                                 |
 |--------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------------|
 | 查詢個人掛號記錄         | `sick_register(register_number, doctor_name, register_data, register_time)` | 病患可以查詢自己的掛號記錄，包含掛號號碼、醫師姓名、掛號日期及時間 |
-| 查詢可預約的醫師與時段   | `sick_register(schedule_number, doctor_name, schedule_data, clinic_room)` | 病患可以查詢目前可預約的醫師與時段，包含排班號碼、醫師姓名、日期及診間 |
+| 查詢可預約的醫師與時段   | `sick_register(doctor_name, register_data, register_time, remaining_slots)` | 病患可以查詢目前可預約的醫師與時段，包含排班號碼、醫師姓名、日期及診間 |
 | 查詢個人基本資料         | `sick_basic(sick_id, sick_name, sick_gender, sick_birth, sick_blood)`     | 病患可以查看自己的基本資料，包含姓名、性別、生日及血型             |
 
 **查詢個人掛號記錄**
