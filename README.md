@@ -59,7 +59,7 @@
   </tr>
   <tr>
     <td>sick_id</td>
-    <td>第一個字元只可為大寫字母，第二個字元則是1或2 , 總長度10</td>
+    <td>第一個字元只必為大寫字母，第二個字元則是1或2 , 總長度10</td>
     <td>病患身分證字號</td>
   </tr>
   <tr>
@@ -137,7 +137,7 @@ CREATE TABLE sick_basic (
     <td>醫生姓名</td>
   </tr>
   <tr>
-    <td>register_data</td>
+    <td>register_date</td>
     <td>DATE</td>
     <td>NOT NULL </td>
     <td>就診日期</td>
@@ -172,7 +172,7 @@ CREATE TABLE sick_basic (
     <td>醫生姓名</td>
   </tr>
   <tr>
-    <td>register_data</td>
+    <td>register_date</td>
     <td>格式為 yyyy-mm-dd ， 不可填寫過去日期</td>
     <td>就診日期</td>
   </tr>
@@ -276,13 +276,7 @@ DELIMITER ;
     <td>醫生id</td>
   </tr>
   <tr>
-    <td>doctor_name</td>
-    <td>STRING</td>
-    <td>NOT NULL</td>
-    <td>醫生姓名</td>
-  </tr>
-  <tr>
-    <td>schedule_data</td>
+    <td>schedule_date</td>
     <td>DATE</td>
     <td>NOT NULL</td>
     <td>排班日期</td>
@@ -312,19 +306,12 @@ DELIMITER ;
     <td>醫生id</td>
   </tr>
   <tr>
-    <td>doctor_name</td>
-    <td>長度不可超過50字元 ， 不包含特殊字元</td>
-    <td>醫生姓名</td>
-  </tr>
-  <tr>
-    <td>schedule_data</td>
-    <td>DATE</td>
+    <td>schedule_date</td>
     <td>格式為 yyyy-mm-dd ， 不可填寫過去日期</td>
     <td>排班日期</td>
   </tr>
   <tr>
     <td>clinic_room</td>
-    <td>INTEGER</td>
     <td>只能填寫'101', '102', '103' ， 不能含有數字、特殊符號、除這三種數組外的數組出現 , 系統若查詢到診間設備為'N'則不可填寫</td>
     <td>診間編號</td>
   </tr>
@@ -334,7 +321,6 @@ DELIMITER ;
 CREATE TABLE sick_register (
   schedule_number INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   doctor_id CHAR(8) NOT NULL,
-  doctor_name VARCHAR(50) NOT NULL,
   schedule_data DATE NOT NULL,
   clinic_room ENUM('101', '102', '103') NOT NULL
 );
@@ -372,7 +358,7 @@ CREATE TABLE sick_register (
   <tr>
     <td>device</td>
     <td>ENUM('Y', 'N')</td>
-    <td>NOT NULL,只能填寫'Y', 'N'</td>
+    <td>NOT NULL</td>
     <td>設備好壞</td>
   </tr>
 </table>
@@ -409,6 +395,62 @@ CREATE TABLE sick_register (
 | 102         | N      |
 | 103         | Y      |
 +-------------+--------+
+```
+**4.doctor_basic基本資料表**
+<table>
+  <tr>
+    <td>欄位名稱</td>
+    <td>資料型別</td>
+    <td>限制條件</td>
+    <td>說明</td>
+  </tr>
+  <tr>
+    <td>clinic_room</td>
+    <td>INTEGER</td>
+    <td>NOT NULL , PRIMARY KEY</td>
+    <td>醫師編號</td>
+  </tr>
+  <tr>
+    <td>doctor_name</td>
+    <td>STRING</td>
+    <td>NOT NULL</td>
+    <td>醫生姓名</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td>欄位名稱</td>
+    <td>完整性限制</td>
+    <td>說明</td>
+  </tr>
+  <tr>
+    <td>doctor_id</td>
+    <td>CHAR(8)</td>
+    <td>NOT NULL , PRIMARY KEY</td>
+    <td>醫師編號</td>
+  </tr>
+  <tr>
+    <td>doctor_name</td>
+    <td>長度不可超過50字元 ， 不包含特殊字元</td>
+    <td>醫生姓名</td>
+  </tr>
+</table>
+
+```SQL
+CREATE TABLE doctor_register (
+  doctor_id CHAR(8) NOT NULL PRIMARY KEY,
+  doctor_name VARCHAR(50) NOT NULL
+);
+```
+```
++------------+------------+
+| doctor_id  | doctor_name|
++------------+------------+
+| 92025001   | 陳建宏     |
+| 62025002   | 林怡君     |
+| 22025003   | 王柏霖     |
++------------+------------+
 ```
 
 ## ER diagram
