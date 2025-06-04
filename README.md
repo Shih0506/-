@@ -405,7 +405,7 @@ CREATE TABLE sick_register (
     <td>說明</td>
   </tr>
   <tr>
-    <td>clinic_room</td>
+    <td>doctor_id</td>
     <td>CHAR(8)</td>
     <td>NOT NULL , PRIMARY KEY</td>
     <td>醫師編號</td>
