@@ -11,7 +11,7 @@
 * 掛號查詢/取消：停停掛號成功後，查詢了掛號紀錄，確保他有無掛到號，若要取消該掛號，點選取消鍵。
 *  報到與診療紀錄管理：又又線上掛號到現場報到，因為她第一次去填寫了基本資料，櫃台管理員將她的資料打進系統，方便醫師為她整治。
 # 使用案例圖
-![image](https://github.com/user-attachments/assets/d3dcee98-7ddb-4621-a9c6-4924677f9752)
+![image](https://github.com/user-attachments/assets/8b227083-4eff-48b9-b904-ce22842b1000)
 
 ## 系統需求說明
 病患:<br>
