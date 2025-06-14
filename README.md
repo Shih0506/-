@@ -39,7 +39,9 @@
 ![image](https://github.com/user-attachments/assets/6fcc5a4a-b66b-4be3-9697-4abf2a40fcfa)
 
 ## DBMS ER diagram
-![drawSQL-image-export-2025-06-04](https://github.com/user-attachments/assets/9a30530b-e4e9-42dc-9c49-a73f61cac90b)
+![期末1](https://github.com/user-attachments/assets/599ef1d0-3482-4aba-a553-2231dcc4a512)
+![期末2](https://github.com/user-attachments/assets/4f97801d-756e-4f4c-9035-19f89df62aa5)
+
 
 ## 資料表
 **1.sick_basic基本資料表**
