@@ -601,7 +601,7 @@ HAVING COUNT(*) > 1;
 ```
 
 ## ER diagram
-![04](https://github.com/user-attachments/assets/fc367963-a929-4849-99a2-90172d52e59c)
+![image](https://github.com/user-attachments/assets/6fcc5a4a-b66b-4be3-9697-4abf2a40fcfa)
 
 
 ## DBMS ER diagram
