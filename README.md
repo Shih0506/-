@@ -26,6 +26,9 @@
 2.醫師排班<br>
 3.手動掛號<br>
 4.填寫基本資料<br>
+## 系統完整性限制
+主鍵唯一性:醫師ID、患者ID、掛號編號 需唯一<br>
+
 ## ER diagram
 ![image](https://github.com/user-attachments/assets/6fcc5a4a-b66b-4be3-9697-4abf2a40fcfa)
 
