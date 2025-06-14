@@ -10,6 +10,12 @@
 * 醫師排班管理：櫃台盧某某要幫每位醫師排班，使用統一的的帳號密碼登入後，設定林某某醫師5/12的08:30到12:00及18:00到21:30要上班並顯示可掛號人數。
 * 掛號查詢/取消：停停掛號成功後，查詢了掛號紀錄，確保他有無掛到號，若要取消該掛號，點選取消鍵。
 *  報到與診療紀錄管理：又又線上掛號到現場報到，因為她第一次去填寫了基本資料，櫃台管理員將她的資料打進系統，方便醫師為她整治。
+## ER diagram
+![image](https://github.com/user-attachments/assets/6fcc5a4a-b66b-4be3-9697-4abf2a40fcfa)
+
+## DBMS ER diagram
+![drawSQL-image-export-2025-06-04](https://github.com/user-attachments/assets/9a30530b-e4e9-42dc-9c49-a73f61cac90b)
+
 ## 資料表
 **1.sick_basic基本資料表**
 <table>
@@ -599,12 +605,5 @@ FROM sick_register
 GROUP BY sick_id, register_data
 HAVING COUNT(*) > 1;
 ```
-
-## ER diagram
-![image](https://github.com/user-attachments/assets/6fcc5a4a-b66b-4be3-9697-4abf2a40fcfa)
-
-
-## DBMS ER diagram
-![drawSQL-image-export-2025-06-04](https://github.com/user-attachments/assets/9a30530b-e4e9-42dc-9c49-a73f61cac90b)
 
 
