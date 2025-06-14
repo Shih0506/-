@@ -32,8 +32,8 @@
 掛號限制:每個患者每日只能對每位醫師掛號一次<br>
 報到狀態限制:報到只能對有掛號的進行紀錄，每筆掛號只能使用一次<br>
 時間合理性:掛號時間必須為醫師有效門診時段內<br>
-&nbsp;&nbsp;&nbsp;&nbsp;掛號日期不可早於今日<br>
-&nbsp;&nbsp;&nbsp;&nbsp;報到時間必須在掛號當天<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;掛號日期不可早於今日<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;報到時間必須在掛號當天<br>
 ## ER diagram
 ![image](https://github.com/user-attachments/assets/6fcc5a4a-b66b-4be3-9697-4abf2a40fcfa)
 
