@@ -15,15 +15,17 @@
  1.註冊與登入<br>
  2.掛號預約功能(醫師、時段)<br>
  3.掛號紀錄查詢與取消<br>
+ <br>
 醫護人員:<br>
-登入<br>
-掛號紀錄查詢與取消<br>
-查看基本資料<br>
+1.登入<br>
+2.掛號紀錄查詢與取消<br>
+3.查看基本資料<br>
+<br>
 櫃台管理員:<br>
-登入<br>
-醫師排班<br>
-手動掛號<br>
-填寫基本資料<br>
+1.登入<br>
+2.醫師排班<br>
+3.手動掛號<br>
+4.填寫基本資料<br>
 ## ER diagram
 ![image](https://github.com/user-attachments/assets/6fcc5a4a-b66b-4be3-9697-4abf2a40fcfa)
 
